@@ -123,7 +123,7 @@ set wildignore=doxygen*
 "
 
 " Put vim_util.vim in your home directory
-source ~/vim_util.vim
+source ~/personal_vimrc/vim_util.vim
 " Remap @w to jump between source code and header
 " and @e to split
 let @w=":call HeaderJump()"
