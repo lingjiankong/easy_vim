@@ -114,8 +114,8 @@ let @m=":%s//m\u&/gc"
 " Set the leader key to be spacebar
 :let mapleader = "\<Space>"
 
-" Ignores doxygen files when using command-t
-set wildignore=doxygen*
+" Ignores these files when using command-t
+set wildignore=*/doxygen/*,*/build/*,*.dox,*.html,*.conf,*.tex
 
 
 "
@@ -167,14 +167,7 @@ nnoremap } ]mzz
 nnoremap { [mzz
 
 " Auto complete
-inoremap ( ()<esc>i
-inoremap ' ''<esc>i
-inoremap " ""<esc>i
-inoremap [ []<esc>i
-inoremap { {}<esc>i
-inoremap {} {}<esc>i<cr><cr><esc>kA<tab>
-inoremap < <><esc>i
-inoremap << <<
+inoremap {}<CR> {}<esc>i<cr><cr><esc>kA<tab>
 
 noremap <F3> :set rnu! rnu?<CR>
 noremap <F2> :set nu! nu?<CR>
