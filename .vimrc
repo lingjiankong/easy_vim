@@ -115,7 +115,7 @@ let @m=":%s//m\u&/gc"
 :let mapleader = "\<Space>"
 
 " Ignores these files when using command-t
-set wildignore=*/doxygen/*,*/build/*,*.dox,*.html,*.conf,*.tex
+set wildignore=*/doxygen/*,*/build/*
 
 
 "
