@@ -83,7 +83,7 @@ filetype plugin on
 set tags=~/.vim/tags
 
 " These lines aren't necessary and I don't know what they do. They were
-" recommended online. 
+" recommended online.
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
@@ -142,9 +142,9 @@ inoremap jk <esc>
 
 "
 " Andy's additional stuff
-" 
+"
 
-" Display line number on the bottom right corner 
+" Display line number on the bottom right corner
 :set ruler
 
 " Display syntax color
@@ -171,3 +171,12 @@ inoremap {}<CR> {}<esc>i<cr><cr><esc>kA<tab>
 
 noremap <F3> :set rnu! rnu?<CR>
 noremap <F2> :set nu! nu?<CR>
+
+" Remove all trailing whitespaces
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+noremap <F6> :call <SID>StripTrailingWhitespaces()<CR>
