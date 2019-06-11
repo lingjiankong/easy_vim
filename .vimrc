@@ -15,7 +15,11 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py'  }
+
+Plug 'junegunn/vim-easy-align'
+
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 

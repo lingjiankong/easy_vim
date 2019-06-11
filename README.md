@@ -4,6 +4,13 @@ This repo contains the vim setup that I personally use. If you follow it step by
 
 You can launch vim by either typing `vi` or `vim` in the terminal. They should be pointing to the exact same version of vim. The following steps introduce how to properly setup your vim.
 
+This repository contains two vim config files:
+
+1. `.vimrc`, which is the vim config file that you use when you are running vim in a terminal.
+2. `.ideavimrc`, which is the vim vonfig file when you are running vim in a JetBrains IDE like PyCharm and CLion.
+
+## Step by step guide
+
 ### Clone the repository
 
 ```
@@ -11,16 +18,12 @@ cd ~
 git clone https://github.com/lingjiankong/VimCharm
 ```
 
-### What this repository contains
-
-This repository contains two vim config files:
-
-1. `.vimrc`, which is the vim config file that you use when you are running vim in a terminal.
-2. `.ideavimrc`, which is the vim vonfig file when you are running vim in a JetBrains IDE like PyCharm and CLion.
-
-You can use symbolic link to link to `~/.vimrc` to `~/VimCharm/.vimrc`:
+Now you should use symbolic link to link to `~/.vimrc` to `~/VimCharm/.vimrc`:
 
 ```
+
+### Set symbolic link to vim config files
+
 ln -s VimCharm/.vimrc .vimrc
 ```
 
@@ -30,10 +33,41 @@ In case the symbolic link exists already, force update it by passing in argument
 ln -sf VimCharm/.vimrc .vimrc
 ```
 
+If you are also using vim plug in in CLion and PyCharm, you should do the same step to link `ideavimrc`:
+
+```
+ln -s VimCharm/.ideavimrc .vimrc
+
+```
+
 ### Install package manger
 
-Use [vim-plug](https://github.com/junegunn/vim-plug) as your vim package manager. Follow the steps in the link for how to set it up.
+Use [vim-plug](https://github.com/junegunn/vim-plug) as your vim package manager. Simply do:
 
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Now, open your `.vimrc` file by typing `vim ~/.vimrc`.
+
+Inside vim editor, do `:source ~/.vimrc`, which enables the system to load the brand new vim config file.
+
+Now, run `:PlugInstall` (also inside the vim editor). This will install all the packages managed by `vim-plug`.
+
+### Some setup on your computer
+
+There are some setup you need to perform on your computer to have all the packages working correctly.
+
+#### Installing ctags
+
+Ctags enable you to navigate in your code. This is necessary for `vim-gutentags` to work 
+
+```
+sudo apt-get install ctags
+```
+
+That's should be it. Enjoy vim!
 
 ## Useful vim commands
 
@@ -42,8 +76,6 @@ A `WORD` is always delimited by whitespace.
 A `word` is delimited by non-keyword characters, which are configurable. Whitespace characters aren't keywords, and usually other characters (like ()[],-) aren't, neither. Therefore, a word usually is smaller than a WORD; a "word-navigation" is more fine-grained than a "WORD-NAVIGATOR".
 
 if you git checkout or git pull, use `:e` to update the buffer of the view to get the newest info
-
-## Normal Mode and stay in normal mode
 
 `/` to search, press `enter`, then `n` to search next, `shift-n` to search previous
 
