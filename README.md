@@ -20,10 +20,9 @@ git clone https://github.com/lingjiankong/VimCharm
 
 Now you should use symbolic link to link to `~/.vimrc` to `~/VimCharm/.vimrc`:
 
-```
-
 ### Set symbolic link to vim config files
 
+```
 ln -s VimCharm/.vimrc .vimrc
 ```
 
@@ -33,10 +32,10 @@ In case the symbolic link exists already, force update it by passing in argument
 ln -sf VimCharm/.vimrc .vimrc
 ```
 
-If you are also using vim plug in in CLion and PyCharm, you should do the same step to link `ideavimrc`:
+If you are also using vim in CLion and PyCharm, you should do the same step to link `ideavimrc`:
 
 ```
-ln -s VimCharm/.ideavimrc .vimrc
+ln -s VimCharm/.ideavimrc .ideavimrc
 
 ```
 
