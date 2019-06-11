@@ -72,14 +72,12 @@ set expandtab
 
 " Auto indent
 set autoindent
+set smartindent
 
 " Making space the leader key
 :let mapleader = "\<Space>" 
 
-" Use space-t to search git files through fzf.
-nnoremap <leader>t :GFiles<cr>
-
-" Remove all trailing whitespaces by calling F6
+" Remove all tailing whitespaces by calling F6
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -88,11 +86,25 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 noremap <F6> :call <SID>StripTrailingWhitespaces()<CR>
 
-" Needed for itchyny/lightline.vim
+" Needed for junegunn/fzf
+" ***********************
+" Use space-t to search git files through fzf.
+nnoremap <leader>t :GFiles<cr>
+
+" Needed for itchyny/lightline
+" ****************************
 set laststatus=2
 
 " If you use itchyny/lightline.vim, then -- INSERT -- is not needed anymore because the mode information is displayed in the status line
 set noshowmode
+
+" Needed for junegunn/vim-easy-align
+" **********************************
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " End extra stuff when using terminal vim
 " ***************************************
