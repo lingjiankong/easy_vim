@@ -21,6 +21,8 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'ludovicchabant/vim-gutentags'
 
+Plug 'timakro/vim-searchant'
+
 call plug#end()
 
 " ****************
@@ -71,8 +73,7 @@ set expandtab
 " *****************************************
 
 " Auto indent
-set autoindent
-set smartindent
+" set autoindent
 
 " Making space the leader key
 :let mapleader = "\<Space>" 
@@ -105,6 +106,14 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Needed for itchyny/lightline, some weird color display issue going on with using terminator.
+set background=dark
+set t_Co=256
+
+" Needed for timakro/vim-searchant, press enter to cancel highlight.
+let g:searchant_map_stop = 0
+nmap <CR> <Plug>SearchantStop
 
 " End extra stuff when using terminal vim
 " ***************************************
