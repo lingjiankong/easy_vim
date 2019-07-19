@@ -11,6 +11,25 @@ This repository contains two vim config files:
 
 ## Step by step guide
 
+### Installing dependencies
+
+Ctags enable you to navigate in your code. This is necessary for `vim-gutentags` to work 
+
+```
+sudo apt-get install ctags
+```
+
+Python, CMake, and other stuff... The package YouCompleteMe needs these pacakges.
+
+```
+sudo apt-get install build-essential 
+sudo apt-get install cmake
+sudo apt-get install python-dev
+sudo apt-get install python
+sudo apt-get install python3
+```
+
+
 ### Clone the repository
 
 ```
@@ -58,13 +77,7 @@ Now, run `:PlugInstall` (also inside the vim editor). This will install all the 
 
 There are some setup you need to perform on your computer to have all the packages working correctly.
 
-#### Installing ctags
-
-Ctags enable you to navigate in your code. This is necessary for `vim-gutentags` to work 
-
-```
-sudo apt-get install ctags
-```
+### Done
 
 That's should be it. Enjoy vim!
 
