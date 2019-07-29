@@ -101,8 +101,6 @@ This list probably doesn't include the very basics (like using `h`, `j`, `k`, `l
 
 `^` - First non blank character of the line.
 
-`I` - Enter insert mode at first non-blank character.
-
 `$` - Go to end of the line.
 
 `gg` - Go to top of the file, `G` - Go to end of the file.
@@ -117,9 +115,13 @@ A `word` is delimited by non-keyword characters, which are configurable. Whitesp
 
 `Ctrl-i` to jump back and forth
 
-### Delete, yank and put
+`zz` centers the view
+
+### Delete
 
 `x` - Delete under current cursor, `X` - Delete before current cursor.
+
+`d/whatever` - Delete until word whatever.
 
 `dd` or `D` - Delete (cut) one single line
 
@@ -131,9 +133,21 @@ A `word` is delimited by non-keyword characters, which are configurable. Whitesp
 
 `p` to paste after cursor, `P` to paste before cursor
 
-`xp` - Super fast way to swap two letters (`x` cuts the letter, and `p` pastes after current letter, effectively swap two letters). 
+`xp` - Super fast way to swap two letters (`x` cuts the letter, and `p` pastes after current letter, effectively swap two letters).
 
-`:reg` to check all registers. `:reg 3z` to check register 3 and z.
+### Yank and put
+
+`yiw` to yank a word, then `viwp` to repalce another word with yanked word. Same priciple applies to other commands. For example, `yi(` to yank all arguments in a function, then `vi(p` to replace another function argument with the yanked argument.
+
+`y` to yank, `yy` to yank current line, `7yy` to yank 7 lines. 
+
+`y/whatever` to yank until word whatever.
+
+`yiw`: yank a word, excluding surrounding whitespace, `[n]yiw` to yand multiple words, `yi(` to yank everything inside the parenthesis.
+
+`p` to paste after cursor, `P` paste before cursor
+
+`:reg` to check all registers. `:reg 3z` to check register 3 and z. Note there are both 0-9 numbered registers and a-z named registers.
 
 `"0p` to paste most recent yanked text. `"1p` to paste most recent deleted text
 
@@ -147,21 +161,11 @@ Register `""` holds text from `d` `c` `s` `x` and `y` opearations. `"0"` holds t
 
 `"ap` - Paste whatever in 'a' register
 
-### Others
+`"kp` to paste stuff in register elsewhere
 
-If you git checkout or git pull, use `:e` to update the buffer of the view to get the newest info
+`"+p` to paste from system clipboard on Linux
 
-`/` to search, press `enter`, then `n` to search next, `Shift-n` to search previous
-
-`u` to undo, `ctrl-r` to redo
-
-### Old Stuff
-
-`y` to yank, `[n]yy` to yank current line, use `n` to yank more lines
-
-`yiw`: yank a word, excluding surrounding whitespace, `[n]yiw` to yand multiple words, `yi(` to yank everything inside the parenthesis
-
-`p` to paste after cursor, `P` paste before cursor
+### Search, find and replace
 
 `[n]f<o>` - Forward until (nth) (o)  (Inclusive, until and include). Example, `df<letter>` delete until `<letter>` and include `<letter>` i.e. `<letter>` being deleted as well. Example, `cf<letter>` delete until `<letter>` and include `<letter>` i.e. `<letter>` being deleted as well, and switch to INSERT MODE. 
 
@@ -171,41 +175,13 @@ If you git checkout or git pull, use `:e` to update the buffer of the view to ge
 
 `[n]T<o>` - Backward until (nth) (o) (Exclusive, until but not include)
 
-`v` to visual select, `V` to visual select lines, `ctrl-v` for more specific selection.
+`/` to search, press `enter`, then `n` to search next, `N` to search previous
 
-`*` to search the current word (bounded, exact match), `g*` to serch the current word (unbounded, partial match)
+`:%s/foo/bar/g` change all `foo` to `bar`, change `g` to `gc` to ask for comfirmation before change. Note that "%" means entire file range/
 
-`ctrl-w` then `v` to split vertically line
+`.,+2s/foo/bar/g` if you would like to change each `foo` to `bar` for current line (`.`) and the two next lines (`+2`)
 
-`ctrl-w` then `s` to split horizonally line
-
-`ctrl-w` then `arrow key` to jump bt windows
-
-`~` - Toggle case of character under cursor
-
-`q!` - Discard change and close that window
-
-`ctrl-]` to jump to function definition when cursor is on function
-
-`ctrl-@` then `w` to switch between `.h` and `.cpp` files.
-
-`ctrl-shift-c` to copy in vim
-
-`ctrl-shift-v` to paste in vim
-
-`.` repeat last command
-
-`zz` centers the view
-
-`]m` jump to next method
-
-`[m` jump to previous method
-
-`qa` to record into register a, `q` to quit recording, `@a` to replay the recording at register a. `3@a` to replay the recording three times.
-
-`:set nu` show line numbers
-
-`:set nonu` hide line numbers
+### Text objects
 
 `ci{` change inside `{}`
 
@@ -215,13 +191,59 @@ If you git checkout or git pull, use `:e` to update the buffer of the view to ge
 
 `ci<` change inside `<>`
 
-Similar concept applies to `yi(`, `di(`...
+Similar concept applies to `yi(`, `di(`... You can also use the close bracket such as `di]` or `da]` if you want.
+
+If you replace `i` with `a` (think of `a` as "around" and `i` as inside), then the change is inclusive. For example, `da[` deletes everything inside bracket, INCLUDING the brackets themselves. For example, `apple [whatever] pear` becomes `apple  pear`.
+
+If you are working with `xml` sytle document, you can make changes to stuff inside a tag. For example, use `dit` to delete  everything inside `<p>whatever</p>` so it becomes `<p></p>`
+
+### Macros
+
+`qa` to record macro to register a. Hit `q` when you've finished recording.
+
+`@a` to replay macro in register a. `@@` to replay the most recent recorded macro.
+
+`5@a` to replay macro in register a 5 times.
+
+`qA` to append to register a. When you've finished appending, type `q`.
+
+### Miscellaneous
+
+`Ctrl-[` to escapt. Same as `ESC`. Note: To get the special `^` in `~/.vimrc`, use `Ctrl-v` (you can't use literal caret sign). For example, if you want to specify escape in your `~/.vimrc`, you need to use `Ctrl-v` to get the `^`. For specific example on how to set up a customized macro, see the `.vimrc` file.
+
+If you git checkout or git pull, use `:e` to update the buffer of the view to get the newest info
+
+`u` to undo, `Ctrl-r` to redo
+
+`v` to visual select, `V` to visual select lines, `ctrl-v` for more specific selection.
+
+`*` to search the current word (bounded, exact match), `g*` to search the current word (unbounded, partial match)
+
+`Ctrl-w` then `v` to split vertically line
+
+`Ctrl-w` then `s` to split horizonally line
+
+`Ctrl-w` then `arrow key` to jump bt windows
+
+`~` - Toggle case of character under cursor
+
+`Ctrl-]` to jump to function definition when cursor is on function
+
+`.` repeat last command
+
+`]m` jump to next method (i.e. jump to next curly braces)
+
+`[m` jump to previous method
 
 `s` - Delete character under cursor and enter insert mode
 
-`S` - Delete line and begin insert at beginning of same line, same as `cc`
+`S` or `cc` - Delete line and begin insert at beginning of same line.
 
-`a` - Enter insert mode _after_ cursor
+`I` - Enter insert mode at first non-blank character.
+
+`R` - Replace mode.
+
+`i` - Enter insert mode _before_ cursor. `a` - Enter insert mode _after_ cursor
 
 `A` - Enter insert mode at the end of the line
 
@@ -229,16 +251,6 @@ Similar concept applies to `yi(`, `di(`...
 
 `O` - enter insert mode on the above line
 
-`C` - Delete from cursor to end of line and begin insert
+`C` or `c$` - Delete from cursor to end of line and begin insert. Note that `D` or `d$` deletes current line all the way to end position.
 
-`ctrl-[` to escape from insert mode. While... you use `jk` most of the time. 
-
-`:%s/foo/bar/g` change all `foo` to `bar`, change `g` to `gc` to ask for comfirmation before change
-
-`.,+2s/foo/bar/g` if you would like to change each `foo` to `bar` for current line (`.`) and the two next lines (`+2`)
-
-Registers in Vim let you run actions or commands on text stored within them. To access a register, you type "a before a command, where a is the name of a register. If you want to copy the current line into register k, you can type`"kyy`.
-
-`"kp` to paste stuff in register elsewhere
-
-`"+p` to paste from system clipboard on Linux
+`J` - join two lines together. `8J` to join 8 lines together. `gJ` to join two lines but keep the original spacing (rarely used).
