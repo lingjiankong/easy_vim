@@ -115,6 +115,10 @@ set t_Co=256
 let g:searchant_map_stop = 0
 nmap <CR> <Plug>SearchantStop
 
+" todo macro so we don't need to type our name everytime. Simply type @t when you
+" want to have have a TODO somewhere.
+let @t = 'O// TODO (lingjian) : A'
+
 " End extra stuff when using terminal vim
 " ***************************************
 " ***************************************
