@@ -32,8 +32,10 @@ sudo apt-get install python3
 
 ### Clone the repository
 
+Clone the repository to wherever location you want. For example, clone it to your home folder:
+
 ```
-cd ~
+cd
 git clone https://github.com/lingjiankong/VimCharm
 ```
 
@@ -42,13 +44,13 @@ Now you should use symbolic link to link to `~/.vimrc` to `~/VimCharm/.vimrc`:
 ### Set symbolic link to vim config files
 
 ```
-ln -s VimCharm/.vimrc .vimrc
+ln -s VimCharm/.vimrc ~/.vimrc
 ```
 
 In case the symbolic link exists already, force update it by passing in argument `-f`:
 
 ```
-ln -sf VimCharm/.vimrc .vimrc
+ln -sf VimCharm/.vimrc ~/.vimrc
 ```
 
 If you are also using vim in CLion and PyCharm, you should do the same step to link `ideavimrc`:
@@ -83,33 +85,83 @@ That's should be it. Enjoy vim!
 
 ## Useful vim commands
 
+This list probably doesn't include the very basics (like using `h`, `j`, `k`, `l` to navigates)
+
+### Navigation
+
+`Ctrl-f` - Move forward a page, `Ctrl-b` - Move backward a page.
+
+`w` - Forward to the beginning of next word, `W` - Forward to the beginning of the next WORD.
+
+`b` - Backward to the next beginning of a word, `B` - Backward to the next beginning of a WORD.
+
+`e` - Forward to the next end of word, `E` - Forward to the next end of WORD.
+
+`0` - Move to the beginning of the line (including blank space).
+
+`^` - First non blank character of the line.
+
+`I` - Enter insert mode at first non-blank character.
+
+`$` - Go to end of the line.
+
+`gg` - Go to top of the file, `G` - Go to end of the file.
+
+`15G`,`15gg`, or `:15` - Go to line 15.
+
 A `WORD` is always delimited by whitespace.
 
 A `word` is delimited by non-keyword characters, which are configurable. Whitespace characters aren't keywords, and usually other characters (like ()[],-) aren't, neither. Therefore, a word usually is smaller than a WORD; a "word-navigation" is more fine-grained than a "WORD-NAVIGATOR".
 
-if you git checkout or git pull, use `:e` to update the buffer of the view to get the newest info
+`Ctrl-o` to jump back to where you were
 
-`/` to search, press `enter`, then `n` to search next, `shift-n` to search previous
+`Ctrl-i` to jump back and forth
+
+### Delete, yank and put
+
+`x` - Delete under current cursor, `X` - Delete before current cursor.
+
+`dd` or `D` - Delete (cut) one single line
+
+`3dd` - Delete 3 lines.
+
+`3dw` - Delete 3 words, `3dW` - Delete 3 WORDs.
+
+`3cw` - Delete 3 words and enter insert mode, `3cW` - Delete 3 WORDs and enter insert mode.
+
+`p` to paste after cursor, `P` to paste before cursor
+
+`xp` - Super fast way to swap two letters (`x` cuts the letter, and `p` pastes after current letter, effectively swap two letters). 
+
+`:reg` to check all registers. `:reg 3z` to check register 3 and z.
+
+`"0p` to paste most recent yanked text. `"1p` to paste most recent deleted text
+
+`"_dd` to delete a line and put it in black hold register. This is useful when you've yanked some thing and want to replace some text but don't want `y` operation to overwrite whatever you've yanked.
+
+Register `""` holds text from `d` `c` `s` `x` and `y` opearations. `"0"` holds the most recent yanked text. `"1"` holds the most recent deleted text. Numbered registers shift with each `d` or `c`.
+
+`"ayi(` - Yank everything insides parenthesis into 'a' register
+
+`"Ayy` - Append current line to register `a`. Using uppercase of register appends to current register. Using lowercase of register name replaces the information stored in the register.
+
+`"ap` - Paste whatever in 'a' register
+
+### Others
+
+If you git checkout or git pull, use `:e` to update the buffer of the view to get the newest info
+
+`/` to search, press `enter`, then `n` to search next, `Shift-n` to search previous
 
 `u` to undo, `ctrl-r` to redo
+
+### Old Stuff
 
 `y` to yank, `[n]yy` to yank current line, use `n` to yank more lines
 
 `yiw`: yank a word, excluding surrounding whitespace, `[n]yiw` to yand multiple words, `yi(` to yank everything inside the parenthesis
 
 `p` to paste after cursor, `P` paste before cursor
-
-`w` - Forward to the beginning of next word, `W` - Forward to the beginning of the next WORD
-
-`b` - Backward to the next beginning of a word, `B` - Backward to the next beginning of a WORD
-
-`e` - Forward to the next end of word, `E` - Forward to the next end of WORD
-
-`0` - Beginning of the line
-
-`^` - First non blank character of the line 
-
-`$` - End of the line
 
 `[n]f<o>` - Forward until (nth) (o)  (Inclusive, until and include). Example, `df<letter>` delete until `<letter>` and include `<letter>` i.e. `<letter>` being deleted as well. Example, `cf<letter>` delete until `<letter>` and include `<letter>` i.e. `<letter>` being deleted as well, and switch to INSERT MODE. 
 
@@ -135,25 +187,13 @@ if you git checkout or git pull, use `:e` to update the buffer of the view to ge
 
 `ctrl-]` to jump to function definition when cursor is on function
 
-`ctrl-o` to jump back to where you were
-
-`ctrl-i` to jump back and forth
-
 `ctrl-@` then `w` to switch between `.h` and `.cpp` files.
-
-you need to `gen_tags` in your git repository to get definitions for new functions (no need to do it often, only when you've made big changes or have `git pull`ed branches with big changes)
 
 `ctrl-shift-c` to copy in vim
 
 `ctrl-shift-v` to paste in vim
 
-`"ayy` - Yank current line into 'a' register
-
-`"ap`  - Paste 'a' register
-
 `.` repeat last command
-
-`<#>G` go to line #
 
 `zz` centers the view
 
@@ -176,20 +216,6 @@ you need to `gen_tags` in your git repository to get definitions for new functio
 `ci<` change inside `<>`
 
 Similar concept applies to `yi(`, `di(`...
-
-`dd` - delete (cut) one single line
-
-`dj` - delete current line and next line
-
-`2dj` delete current line and 2 lines downward
-
-`2cw` - Delete 2 words and enter insert mode
-
-`2cW` - Delete 2 WORDs and enter insert mode
-
-`i` - Enter insert mode at cursor
-
-`I` - Enter insert mode at first non-blank character
 
 `s` - Delete character under cursor and enter insert mode
 
@@ -216,6 +242,3 @@ Registers in Vim let you run actions or commands on text stored within them. To 
 `"kp` to paste stuff in register elsewhere
 
 `"+p` to paste from system clipboard on Linux
-
-`:reg` To access all currently defined registers type
-
