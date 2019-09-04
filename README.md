@@ -19,17 +19,6 @@ Ctags enable you to navigate in your code. This is necessary for `vim-gutentags`
 sudo apt-get install ctags
 ```
 
-Python, CMake, and other stuff... The package YouCompleteMe needs these pacakges.
-
-```
-sudo apt-get install build-essential 
-sudo apt-get install cmake
-sudo apt-get install python-dev
-sudo apt-get install python
-sudo apt-get install python3
-```
-
-
 ### Clone the repository
 
 Clone the repository to wherever location you want. For example, clone it to your home folder:
