@@ -23,6 +23,10 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'timakro/vim-searchant'
 
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " ****************
@@ -108,12 +112,25 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Needed for itchyny/lightline, some weird color display issue going on with using terminator.
+" ********************************************************************************************
 set background=dark
 set t_Co=256
 
 " Needed for timakro/vim-searchant, press enter to cancel highlight.
+" ******************************************************************
 let g:searchant_map_stop = 0
 nmap <CR> <Plug>SearchantStop
+
+" Needed for python-mode/python-mode
+" **********************************
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options_max_line_length = 120
+let g:pymode_options_colorcolumn = 0
+let g:pymode_syntax_space_errors = 0
+set nonumber
+
+" Automatically format Python code by pressing space - f.
+nnoremap <leader>f :PymodeLintAuto<cr>
 
 " todo macro so we don't need to type our name in todo everytime.
 " Use @t when you are adding todo on a line which is not a comment.
