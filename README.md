@@ -1,6 +1,12 @@
 ## Vim Setup that Works Like a Charm
 
-This repo contains the vim setup that I personally use. If you follow it step by step, you should be able to configure your built-in vim form scratch without any headache. These setups only works if you are using Ubuntu Linux. The default vim that came with Ubuntu distribution works perfectly fine. It is *not* needed to install vim from source.
+This repo contains the vim setup that I personally use. If you follow it step by step, you should be able to configure your built-in vim form scratch without any headache. These setups only works if you are using Ubuntu Linux. It is *not* needed to install vim from source.
+
+You should use `vim-gnome` instead of the default `vim` that came with Ubuntu because by using `vim-gnome` you can copy from and to clipboard across multiple vim instances. There are other good things about `vim-gnome`. Just install it:
+
+```
+sudo install vim-gnome
+```
 
 You can launch vim by either typing `vi` or `vim` in the terminal. They should be pointing to the exact same version of vim. The following steps introduce how to properly setup your vim.
 
@@ -19,16 +25,10 @@ Ctags enable you to navigate in your code. This is necessary for `vim-gutentags`
 sudo apt-get install ctags
 ```
 
-Python, CMake, and other stuff... The package YouCompleteMe needs these pacakges.
-
+If you want to render markdown files using `vim-instant-markdown`, you need to install the following:
 ```
-sudo apt-get install build-essential 
-sudo apt-get install cmake
-sudo apt-get install python-dev
-sudo apt-get install python
-sudo apt-get install python3
+sudo npm -g install instant-markdown-d
 ```
-
 
 ### Clone the repository
 
