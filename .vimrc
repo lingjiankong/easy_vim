@@ -23,6 +23,8 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'timakro/vim-searchant'
 
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 call plug#end()
 
 " ****************
@@ -114,6 +116,9 @@ set t_Co=256
 " Needed for timakro/vim-searchant, press enter to cancel highlight.
 let g:searchant_map_stop = 0
 nmap <CR> <Plug>SearchantStop
+
+" (Possibly) needed for vim-instant-markdown
+filetype plugin on
 
 " todo macro so we don't need to type our name in todo everytime.
 " Use @t when you are adding todo on a line which is not a comment.
