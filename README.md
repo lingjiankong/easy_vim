@@ -5,7 +5,7 @@ This repo contains the vim setup that I personally use. If you follow it step by
 You should use `vim-gnome` instead of the default `vim` that came with Ubuntu because by using `vim-gnome` you can copy from and to clipboard across multiple vim instances. There are other good things about `vim-gnome`. Just install it:
 
 ```
-sudo install vim-gnome
+sudo apt install vim-gnome
 ```
 
 You can launch vim by either typing `vi` or `vim` in the terminal. They should be pointing to the exact same version of vim. The following steps introduce how to properly setup your vim.
