@@ -27,6 +27,7 @@ sudo apt-get install ctags
 
 If you want to render markdown files using `vim-instant-markdown`, you need to install the following:
 ```
+sudo apt install npm
 sudo npm -g install instant-markdown-d
 ```
 
