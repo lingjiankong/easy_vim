@@ -25,8 +25,6 @@ Plug 'timakro/vim-searchant'
 
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
 Plug 'tpope/vim-surround'
 
 call plug#end()
@@ -125,13 +123,6 @@ nmap <CR> <Plug>SearchantStop
 
 " (Possibly) needed for vim-instant-markdown
 filetype plugin on
-
-" Needed for python-mode/python-mode
-" **********************************
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options_max_line_length = 120
-let g:pymode_options_colorcolumn = 0
-let g:pymode_syntax_space_errors = 0
 
 " Automatically format Python code by pressing space - f.
 nnoremap <leader>f :PymodeLintAuto<cr>
