@@ -31,6 +31,12 @@ sudo apt install npm
 sudo npm -g install instant-markdown-d
 ```
 
+Install Clang format
+```
+sudo apt install clang-format
+```
+
+
 ### Clone the repository
 
 Clone the repository to wherever location you want. For example, clone it to your home folder:

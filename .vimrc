@@ -6,8 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'jiangmiao/auto-pairs'
-
 Plug 'itchyny/lightline.vim'
 
 Plug 'terryma/vim-multiple-cursors'
@@ -26,6 +24,8 @@ Plug 'timakro/vim-searchant'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 Plug 'tpope/vim-surround'
+
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
