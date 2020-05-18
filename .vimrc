@@ -124,14 +124,14 @@ nmap <CR> <Plug>SearchantStop
 " (Possibly) needed for vim-instant-markdown
 filetype plugin on
 
-" Automatically format Python code by pressing space - f.
-nnoremap <leader>f :PymodeLintAuto<cr>
-
 " todo macro so we don't need to type our name in todo everytime.
 " Use @t when you are adding todo on a line which is not a comment.
 " Use @d when you are adding todo on a commented line.
 let @t = 'O// TODO (lingjian) : A'
 let @d = 'OTODO (lingjian) : A'
+
+" Clang format by pressing space-c
+nmap <leader>c :ClangFormat<CR>
 
 " End extra stuff when using terminal vim
 " ***************************************
