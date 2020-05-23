@@ -36,6 +36,11 @@ Install Clang format
 sudo apt install clang-format
 ```
 
+Install autopep8 for Python formatter
+```
+sudo apt install python-autopep8
+```
+
 
 ### Clone the repository
 

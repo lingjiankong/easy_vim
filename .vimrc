@@ -27,6 +27,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'rhysd/vim-clang-format'
 
+Plug 'tell-k/vim-autopep8'
+
 call plug#end()
 
 " ****************
@@ -124,11 +126,11 @@ nmap <CR> <Plug>SearchantStop
 " (Possibly) needed for vim-instant-markdown
 filetype plugin on
 
-" todo macro so we don't need to type our name in todo everytime.
-" Use @t when you are adding todo on a line which is not a comment.
-" Use @d when you are adding todo on a commented line.
-let @t = 'O// TODO (lingjian) : A'
-let @d = 'OTODO (lingjian) : A'
+" TODO macro so we don't need to type our name in TODO everytime.
+" Use @t when you are adding TODO on a line which is not a comment.
+" Use @d when you are adding TODO on a commented line.
+let @t = 'O// TODO (Lingjian): A'
+let @d = 'OTODO (Lingjian): A'
 
 " Clang format by pressing space-c
 nmap <leader>c :ClangFormat<CR>
