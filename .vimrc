@@ -132,8 +132,12 @@ filetype plugin on
 let @t = 'O// TODO (Lingjian): A'
 let @d = 'OTODO (Lingjian): A'
 
-" Clang format by pressing space-c
+" Clang format for C/C++ by pressing space-c
 nmap <leader>c :ClangFormat<CR>
+
+" Autopep8 for Python by pressing space-p
+nmap <leader>p :Autopep8<CR>
+let g:autopep8_disable_show_diff=1
 
 " End extra stuff when using terminal vim
 " ***************************************
