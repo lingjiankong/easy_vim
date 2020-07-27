@@ -25,13 +25,7 @@ Ctags enable you to navigate in your code. This is necessary for `vim-gutentags`
 sudo apt-get install ctags
 ```
 
-If you want to render markdown files using `vim-instant-markdown`, you need to install the following:
-```
-sudo apt install npm
-sudo npm -g install instant-markdown-d
-```
-
-Install Clang format
+Install Clang format for C++
 ```
 sudo apt install clang-format
 ```
@@ -44,16 +38,7 @@ sudo apt install python-autopep8
 
 ### Clone the repository
 
-Clone the repository to wherever location you want. For example, clone it to your home folder:
-
-```
-cd
-mkdir -p utils
-cd utils
-git clone https://github.com/lingjiankong/VimCharm
-```
-
-Now you should use symbolic link to link to `~/.vimrc` to `~/VimCharm/.vimrc`:
+The following instruction assumes that you have cloned the repository in `~/utils`.
 
 ### Set symbolic link to vim config files
 

@@ -21,8 +21,6 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'timakro/vim-searchant'
 
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-
 Plug 'tpope/vim-surround'
 
 Plug 'rhysd/vim-clang-format'
@@ -122,15 +120,6 @@ set t_Co=256
 " ******************************************************************
 let g:searchant_map_stop = 0
 nmap <CR> <Plug>SearchantStop
-
-" (Possibly) needed for vim-instant-markdown
-filetype plugin on
-
-" TODO macro so we don't need to type our name in TODO everytime.
-" Use @t when you are adding TODO on a line which is not a comment.
-" Use @d when you are adding TODO on a commented line.
-let @t = 'O// TODO (Lingjian): A'
-let @d = 'OTODO (Lingjian): A'
 
 " Clang format for C/C++ by pressing space-c
 nmap <leader>c :ClangFormat<CR>
