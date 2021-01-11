@@ -10,7 +10,7 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'zxqfl/tabnine-vim'
