@@ -13,7 +13,6 @@ You can launch vim by either typing `vi` or `vim` in the terminal. They should b
 This repository contains two vim config files:
 
 1. `.vimrc`, which is the vim config file that you use when you are running vim in a terminal.
-2. `.ideavimrc`, which is the vim vonfig file when you are running vim in a JetBrains IDE like PyCharm and CLion.
 
 ## Step by step guide
 
@@ -50,13 +49,6 @@ In case the symbolic link exists already, force update it by passing in argument
 
 ```
 ln -sf ~/utils/VimCharm/.vimrc ~/.vimrc
-```
-
-If you are also using vim in CLion and PyCharm, you should do the same step to link `ideavimrc`:
-
-```
-ln -s ~/utils/VimCharm/.ideavimrc .ideavimrc
-
 ```
 
 ### Install package manger
