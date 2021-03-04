@@ -13,7 +13,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'zxqfl/tabnine-vim'
+Plug 'codota/tabnine-vim'
 
 Plug 'junegunn/vim-easy-align'
 
