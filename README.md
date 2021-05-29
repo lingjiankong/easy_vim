@@ -48,7 +48,7 @@ ln -s ~/utils/VimCharm/.vimrc ~/.vimrc
 In case the symbolic link exists already, force update it by passing in argument `-f`:
 
 ```
-ln -sf ~/utils/VimCharm/.vimrc ~/.vimrc
+ln -sf ~/utils/vimmy/.vimrc ~/.vimrc
 ```
 
 ### Install package manger
