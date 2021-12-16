@@ -42,7 +42,7 @@ The following instruction assumes that you have cloned the repository in `~/util
 ### Set symbolic link to vim config files
 
 ```
-ln -s ~/utils/VimCharm/.vimrc ~/.vimrc
+ln -s ~/utils/vimmy/.vimrc ~/.vimrc
 ```
 
 In case the symbolic link exists already, force update it by passing in argument `-f`:
